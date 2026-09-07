@@ -3552,7 +3552,7 @@
         document.getElementById('inquiryForm').style.display = 'none';
         const successMsg = document.createElement('div');
         successMsg.style.cssText = 'text-align:center;padding:40px;';
-        successMsg.innerHTML = '<h2 style="color:#2d5016;margin-bottom:10px;">Thanks for your inquiry!</h2><p style="color:#666;font-size:16px;">We\'ll get back to you shortly.</p>';
+        successMsg.innerHTML = '<h2 style="color:var(--gold);margin-bottom:10px;font-size:32px;">Thanks for your inquiry!</h2><p style="color:var(--text-muted);font-size:16px;">We\'ll get back to you shortly.</p>';
         document.getElementById('inquiryForm').parentElement.appendChild(successMsg);
       }
     }).catch(error => {
