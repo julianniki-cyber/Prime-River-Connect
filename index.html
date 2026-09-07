@@ -172,8 +172,10 @@
   .footer-mark{height:36px;width:auto;flex-shrink:0;}
   .footer-links{display:flex;gap:24px;font-size:14px;color:var(--text-muted);align-items:center;}
   .footer-links a:hover{color:var(--navy);}
-  .footer-social{display:flex;gap:14px;color:var(--text-muted);}
-  .footer-social .icon{width:17px;height:17px;}
+  .footer-social{display:flex;gap:30px;color:var(--text-muted);justify-content:center;flex-wrap:wrap;}
+  .footer-social a{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--text-muted);font-size:14px;font-weight:600;}
+  .footer-social a:hover{color:var(--gold);}
+  .footer-social .icon{width:40px;height:40px;}
 
   .form-note{background:#fff8e6;border:1px solid #f0dca3;color:#8a6d1f;font-size:13px;padding:10px 14px;border-radius:6px;margin-top:14px;}
 </style>
@@ -3492,21 +3494,21 @@
       </div>
 
       <div class="contact-form">
-        <form id="inquiryForm">
+        <form id="inquiryForm" method="POST" action="https://formspree.io/f/xeoojlgp">
           <div class="form-row">
-            <div class="field"><label>Full Name *</label><input type="text" placeholder="e.g. John Doe" required /></div>
-            <div class="field"><label>Company Name</label><input type="text" placeholder="e.g. Global Trade Corp" /></div>
+            <div class="field"><label>Full Name *</label><input type="text" name="name" placeholder="e.g. John Doe" required /></div>
+            <div class="field"><label>Company Name</label><input type="text" name="company" placeholder="e.g. Global Trade Corp" /></div>
           </div>
           <div class="form-row">
-            <div class="field"><label>Email Address *</label><input type="email" placeholder="name@company.com" required /></div>
-            <div class="field"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000" /></div>
+            <div class="field"><label>Email Address *</label><input type="email" name="email" placeholder="name@company.com" required /></div>
+            <div class="field"><label>Phone Number</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000" /></div>
           </div>
           <div class="field" style="margin-bottom:8px;">
             <label>Your Message *</label>
-            <textarea placeholder="Tell us about your global trade, technology, or supply chain requirements..." required></textarea>
+            <textarea name="message" placeholder="Tell us about your global trade, technology, or supply chain requirements..." required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Inquiry <svg class="icon"><use href="#i-arrow-up-right"/></svg></button>
-          <div class="form-note">Note: this form isn't connected to an inbox yet — see the message below the page for how to enable it.</div>
+          <div class="form-note">Your inquiry will be sent to PrimeRiverConnect@Gmail.com</div>
         </form>
       </div>
     </div>
@@ -3523,11 +3525,13 @@
       <a href="#">Privacy Policy</a>
       <a href="#">Terms &amp; Conditions</a>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/company/primeriver-connect-private-limited/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-          <svg class="icon"><use href="#i-linkedin"/></svg>
-        </a>
         <a href="https://www.instagram.com/PrimeRiverConnect" target="_blank" rel="noopener noreferrer" title="Instagram">
           <svg class="icon"><use href="#i-instagram"/></svg>
+          <span>@PrimeRiverConnect</span>
+        </a>
+        <a href="https://www.linkedin.com/company/primeriver-connect-private-limited/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+          <svg class="icon"><use href="#i-linkedin"/></svg>
+          <span>LinkedIn Company Page</span>
         </a>
       </div>
     </div>
@@ -3535,10 +3539,7 @@
 </footer>
 
 <script>
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thanks! This demo form is not yet connected to an email service. See the setup notes for how to wire it up with Formspree or a similar free service.');
-  });
+  // Form will submit to Formspree automatically
 </script>
 
 </body>
