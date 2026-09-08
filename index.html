@@ -3575,10 +3575,9 @@
     });
   }, {threshold: 0.1});
 
-  // Add animation to individual elements
-  document.querySelectorAll('section, .card, .stat, .feature, .presence-item, .contact-item, h1, h2, h3, p, .hero-content > *, .service-item, .value-item, .btn, [class*="grid"] > *').forEach((el, index) => {
+  // Add animation to individual elements without stagger
+  document.querySelectorAll('section, .card, .stat, .feature, .presence-item, .contact-item, h1, h2, h3, p, .hero-content > *, .service-item, .value-item, .btn, [class*="grid"] > *').forEach(el => {
     el.classList.add('scroll-reveal');
-    el.style.animationDelay = (index * 0.05) + 's';
     observer.observe(el);
   });
 </script>
