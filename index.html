@@ -130,6 +130,12 @@
     0%{transform:scale(0.5);opacity:0.7;}
     100%{transform:scale(2.6);opacity:0;}
   }
+  @keyframes fadeInUp{
+    0%{opacity:0;transform:translateY(30px);}
+    100%{opacity:1;transform:translateY(0);}
+  }
+  .scroll-reveal{opacity:0;animation:fadeInUp 0.6s ease-out forwards;}
+  .scroll-reveal.visible{opacity:1;}
   @media (max-width: 900px){ .presence-grid{grid-template-columns:1fr;} }
 
   /* Stats */
@@ -3558,6 +3564,20 @@
     }).catch(error => {
       alert('Error submitting form. Please try again.');
     });
+  });
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {threshold: 0.1});
+
+  document.querySelectorAll('section, .card, .stat, .feature, .presence-item, .contact-item').forEach(el => {
+    el.classList.add('scroll-reveal');
+    observer.observe(el);
   });
 </script>
 
