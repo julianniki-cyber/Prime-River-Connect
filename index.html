@@ -134,8 +134,8 @@
     0%{opacity:0;transform:translateY(30px);}
     100%{opacity:1;transform:translateY(0);}
   }
-  .scroll-reveal{opacity:0;animation:fadeInUp 0.6s ease-out forwards;}
-  .scroll-reveal.visible{opacity:1;}
+  .scroll-reveal{opacity:0;transform:translateY(30px);}
+  .scroll-reveal.visible{animation:fadeInUp 0.6s ease-out forwards;}
   @media (max-width: 900px){ .presence-grid{grid-template-columns:1fr;} }
 
   /* Stats */
@@ -3575,8 +3575,10 @@
     });
   }, {threshold: 0.1});
 
-  document.querySelectorAll('section, .card, .stat, .feature, .presence-item, .contact-item').forEach(el => {
+  // Add animation to individual elements
+  document.querySelectorAll('section, .card, .stat, .feature, .presence-item, .contact-item, h1, h2, h3, p, .hero-content > *, .service-item, .value-item, .btn, [class*="grid"] > *').forEach((el, index) => {
     el.classList.add('scroll-reveal');
+    el.style.animationDelay = (index * 0.05) + 's';
     observer.observe(el);
   });
 </script>
